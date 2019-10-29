@@ -8,6 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -26,8 +27,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -62,10 +69,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-# python virtualenv
-plugins=(virtualenv)
+plugins=(sudo git history taskwarrior tmux tmuxinator zsh-syntax-highlighting zsh-autosuggestions autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,9 +90,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -98,30 +99,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# remove user name in zsh
-# prompt_context(){}
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir_writable dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time battery)
+#################  for mac
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
-# vscode code command
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-# brew path
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-# python3 default
-alias python=python3
-alias pip=pip3
-# composer
-alias composer="php /usr/local/bin/composer.phar"
-# Laravel
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-# mysql
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-# jekyll
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
-# Android path for React Native
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+alias ll='ls -ahl'
+alias rbp='source $HOME/.zshrc'
+alias obp='vi $HOME/.zshrc'
+alias hosts='sudo vi /etc/hosts'
+
+#TERM=xterm-256color
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir_writable dir vcs)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time battery)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
